@@ -1,0 +1,50 @@
+{
+    "URL": "http://localhost:6500/grasshopper",
+    "content": {
+        "absolutetolerance": 0.001,
+        "angletolerance": 1.0,
+        "modelunits": "Millimeters",
+        "dataversion": 7,
+        "algo": null,
+        "filename": "SpikeyThing.gh",
+        "pointer": "md5_160F0BC4DE65CF3285FC89DCB4F09258",
+        "cachesolve": true,
+        "values": [
+            {
+                "ParamName": "Radius",
+                "InnerTree": {
+                    "{0}": [
+                        {
+                            "type": "System.Double",
+                            "data": "0.2"
+                        }
+                    ]
+                }
+            },
+            {
+                "ParamName": "Count",
+                "InnerTree": {
+                    "{0}": [
+                        {
+                            "type": "System.Int32",
+                            "data": "16"
+                        }
+                    ]
+                }
+            },
+            {
+                "ParamName": "Length",
+                "InnerTree": {
+                    "{0}": [
+                        {
+                            "type": "System.Double",
+                            "data": "11.9"
+                        }
+                    ]
+                }
+            }
+        ],
+        "warnings": [],
+        "errors": []
+    }
+}

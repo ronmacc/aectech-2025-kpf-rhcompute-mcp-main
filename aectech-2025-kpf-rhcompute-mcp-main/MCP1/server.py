@@ -144,18 +144,19 @@ Wind Direction: {wind_direction}°
 # Excercise 1
 # Create a tool that returns the current user's information
 
-# @mcp.tool()
-# async def get_current_users_info() -> str:
-#     """Get current user's information
-#     Args:
-#         None
-#     Returns:
-#         A string containing the current user's name and email
-#     """
-#     ## add your user_name and user_email below
-#     
-#     
-#     return f"""Current user's name is {user_name} and email is {user_email}"""
+@mcp.tool()
+async def get_current_users_info() -> str:
+    """Get current user's information
+    Args:
+        None
+    Returns:
+        A string containing the current user's name and email
+    """
+    user_name = "Jane Doe"
+    user_email = "aroncal@lala.com"
+    
+    
+    return f"""Current user's name is {user_name} and email is {user_email}"""
 
 
 ##########################################################################
