@@ -94,7 +94,37 @@ def get_installed_rhino_plugins() -> dict:
 
 ### EXERCISE 1 ###
 # Add a new tool that checks which Grasshopper plugins are installed
+@mcp.tool
+def get_installed_grasshopper_plugins() -> dict:
+    """
+    Returns a list of grasshopper plugins installed on the Rhino.Compute server.
 
+    Use this tool when checking server capabilities, diagnosing missing plugins,
+    or validating that a Grasshopper or Rhino workflow will run correctly.
+
+    Args:
+        None
+
+    Returns:
+        dict: {
+            "status": "success",
+            "plugins": [...]
+        }
+        or {"error": "..."}
+    """
+    url = f"{RHINO_COMPUTE_URL}plugins/gh/installed"
+
+    try:
+        response = requests.get(url, timeout=5)
+        response_data = {
+            "status": "success",
+            "plugins": response.json()
+        }
+        return response_data
+
+    except Exception as e:
+        response_data = {"error": f"Failed to contact Rhino.Compute: {str(e)}"}
+        return response_data
 ##################
 
 @mcp.tool
@@ -243,27 +273,29 @@ def run_wave_pattern_from_surface(path: str) -> dict:
         encoded_geo = json.dumps(geometry.Encode())
 
         # Used add_parameter method to create GH input called "surface"
-
+        surface_input = add_parameter("surface", encoded_geo)
 
         # Add this parameter to the list of GH inputs called gh_inputs
-
+        gh_inputs = [surface_input]
 
         # Run Grasshopper definition through Rhino.Compute using gh_path and gh_inputs
         # and save the result to variable called output
-
+        output = gh.EvaluateDefinition(gh_path, gh_inputs)
 
         # Decode Compute output into variable called decoded
-
+        decoded = decode_gh_output(output)
 
         # Create a file path to save the result .3dm file
-
+        output_path = create_file_path(gh_path)
+        
 
         # Save the decoded result into the output_file using save_3dm_file method
-
+        save_3dm_file(decoded, output_path)
 
         # Add to the response data the pointer to GH file and output file path
         response_data = {
-            "status": "success"
+            "status": "success",
+            "output_file": output_path
         }
         return response_data
 

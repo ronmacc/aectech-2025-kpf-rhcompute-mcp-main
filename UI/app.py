@@ -19,9 +19,9 @@ from contextlib import ExitStack
 # ========== MCP SERVER CONFIGURATION ==========
 # Add or remove MCP server URLs here
 MCP_SERVER_URLS = [
-    "http://localhost:8000/mcp"
+    # "http://localhost:8000/mcp"
     # Add more servers as needed:
-    #"http://localhost:8001/mcp",
+    "http://localhost:8001/mcp",
     #"http://localhost:8002/mcp",
 ]
 # ==============================================
