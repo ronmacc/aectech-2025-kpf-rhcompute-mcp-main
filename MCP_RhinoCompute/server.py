@@ -59,7 +59,6 @@ def get_rhinocompute_version_details() -> dict:
         response_data = {"error": f"Failed to contact Rhino.Compute: {str(e)}"}
         return response_data
 
-
 @mcp.tool
 def get_installed_rhino_plugins() -> dict:
     """
@@ -92,8 +91,6 @@ def get_installed_rhino_plugins() -> dict:
         response_data = {"error": f"Failed to contact Rhino.Compute: {str(e)}"}
         return response_data
 
-### EXERCISE 1 ###
-# Add a new tool that checks which Grasshopper plugins are installed
 @mcp.tool
 def get_installed_grasshopper_plugins() -> dict:
     """
@@ -125,7 +122,6 @@ def get_installed_grasshopper_plugins() -> dict:
     except Exception as e:
         response_data = {"error": f"Failed to contact Rhino.Compute: {str(e)}"}
         return response_data
-##################
 
 @mcp.tool
 def read_grasshopper_inputs_outputs(pointer: str) -> dict:
@@ -216,12 +212,6 @@ def run_grasshopper_tool(pointer: str, inputs: dict) -> dict:
     except Exception as e:
         response_data = {"error": f"Failed to run Grasshopper definition: {str(e)}"}
         return response_data
-
-### EXERCISE 2 ###
-# Add an MCP tool that runs a Grasshopper definition
-# and as an input takes the geometry from provided Rhino file.
-
-##################
 
 @mcp.tool
 def run_wave_pattern_from_surface(path: str) -> dict:

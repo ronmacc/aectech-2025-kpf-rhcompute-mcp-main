@@ -52,7 +52,7 @@ _Make sure it points to the Python 3.11 environment_
 
 ```bash
 pip install -r requirements.txt
-```
+```python
 
 #### 5. Create .env file
 
